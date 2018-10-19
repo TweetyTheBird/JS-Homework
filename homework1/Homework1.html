@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <div id="task4"></div>
+<p id="demo"></p>
+
+<script>
+    console.log('task 1');
+    var today = new Date();
+    var curYear = today.getFullYear();
+    var createdJs = curYear - 1995;
+    console.log('Current year is ' + curYear);
+    console.log('JS was created in ' + createdJs);
+//    console.log(today.getFullYear());
+
+    console.log('task 2');
+    var favBook = 'Small Gods';
+    console.log('Fav book: ' + favBook);
+    var myName = 'Elitsa';
+    
+    console.log('task 4');
+    document.getElementById('task4').innerHTML = 'The favourite book of ' + myName + ' is ' + favBook;
+    
+    console.log('task 5');
+    var price1 = parseFloat("19.95");
+    var price2 = parseFloat(19.95);
+    var price3 = parseInt("19.99 лв.");
+    var price4 = parseInt("пет лева");
+    console.log(price1 + "," + price2 + "," + price3 + "," + price4);
+    
+</script>
+    </body>
+</html>
