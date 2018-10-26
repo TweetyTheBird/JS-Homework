@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>multidimensional array</title>
+    </head>
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>продукт</th>
+                    <th>единична цена</th>
+                    <th>количество</th>
+                    <th>стойност</th>
+                </tr>
+            </thead>
+            <tbody id="shopping_cart"></tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="2" align="right">Общо</th>
+                    <th id="total_qty"></th>
+                    <th id="total_price"></th>
+                </tr>
+            </tfoot>
+
+        </table>
+        <script>
+            var shopping_cart = [
+                ['Копирна хартия Sigma Universal', 9.37, 5],
+                ['Перманентни маркери Faber-Castell с объл връх', 2.4, 10],
+                ['Куб 700 цветни листа Herlitz', 8.69, 8],
+                ['Магнитен органайзер Cassa зелен', 14.99, 4],
+            ];
+
+            var rowsCount = shopping_cart.length;
+            var cartItemsHtml = [];
+            var cartTBLoc = document.getElementById('shopping_cart');
+            var totQtyLoc = document.getElementById('total_qty');
+            var totPriceLoc = document.getElementById('total_price');
+            var allQty = 0; //sum of all products
+            var allPrice = 0; //final price
+
+            for (var i = 0; i < rowsCount; i++) {
+                let price = shopping_cart[i][1]; //single product price
+                let quantity = shopping_cart[i][2]; //quantity of products of a type
+                let total = price * quantity; //total price per row
+                total = total.toFixed(2);
+                var rowItemHtml = '<td>' + shopping_cart[i].join('</td><td>') + '</td><td>' + total + '</td>';
+                cartItemsHtml.push('<tr>' + rowItemHtml + '</tr>');
+                allQty += parseInt(quantity); //total quantity sum
+                allPrice += parseFloat(total); //total price sum
+            }
+
+            totQtyLoc.innerHTML = allQty + ' бр.';
+            totPriceLoc.innerHTML = allPrice + ' лв.';
+            cartItemsHtml = cartItemsHtml.join('');
+            cartTBLoc.innerHTML = cartItemsHtml;
+
+            var cellsLoc = cartTBLoc.getElementsByTagName('td');
+            for (var i in cellsLoc) {
+                if (i % 4 !== 0 + 2) {
+                    cellsLoc[i].innerHTML += ' лв.';
+                } else {
+                    cellsLoc[i].innerHTML += ' бр.';
+
+                }
+            }
+
+        </script>
+    </body>
+</html>
