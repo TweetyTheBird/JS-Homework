@@ -67,8 +67,9 @@ var fromIndex = 0;
 var ladaIndexesArr = [];
 do {
     var resultIndex = cars.indexOf("Lada",fromIndex);
-    if (resultIndex != -1)
+    if (resultIndex != -1) {
         ladaIndexesArr.push(resultIndex);
+    }
     fromIndex = resultIndex+1;
 } while (resultIndex != -1);
 
